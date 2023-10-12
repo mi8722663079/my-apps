@@ -1,28 +1,20 @@
+import { useEffect, useState } from "react";
 import "./App.css";
-
-const Person = () => {
-  const sum = 4 + 44;
-  return (
-    <>
-      <h1>the sum is</h1>
-      <h1>{sum}</h1>
-    </>
-  );
+const Button = ({ counter, onClick }) => {
+  return <button onClick={onClick}>my count is{counter}</button>;
 };
 const App = () => {
-  const name = ["mohamed ", " ali", " yousef"];
+  const [counter, setCounter] = useState(0);
+  const handleClicks = () => {
+    setCounter(counter + 1);
+  };
+  useEffect(() => {
+    setCounter(100);
+  }, []);
   return (
     <div className="App">
-      <h1>Hello, {name[0]}!</h1>
-      <Person />
-      {name[0].includes("mohamed") ? (
-        <>
-          <h1>there's a name</h1>
-          <h2>it's called mohamed</h2>
-        </>
-      ) : (
-        <>test</>
-      )}
+      <Button counter={counter} onClick={handleClicks} />
+      <Button counter={counter} onClick={handleClicks} />
     </div>
   );
 };
