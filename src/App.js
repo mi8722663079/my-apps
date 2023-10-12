@@ -6,7 +6,7 @@ const Button = ({ counter, onClick }) => {
 const App = () => {
   const [counter, setCounter] = useState(0);
   const handleClicks = () => {
-    setCounter(counter + 1);
+    setCounter(counter + 2);
   };
   useEffect(() => {
     setCounter(100);
